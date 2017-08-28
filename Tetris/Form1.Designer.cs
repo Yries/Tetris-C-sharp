@@ -28,36 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.graToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oAutorzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nowaGraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.najlepszeWynikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip2.SuspendLayout();
+            this.l_punkty = new System.Windows.Forms.Label();
+            this.L_punkty_title = new System.Windows.Forms.Label();
+            this.graToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nowaGraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.najlepszeWynikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oAutorzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // pictureBox1
             // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(515, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.pictureBox1.Location = new System.Drawing.Point(12, 64);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 500);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // menuStrip2
+            // l_punkty
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.graToolStripMenuItem,
-            this.oAutorzeToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(515, 24);
-            this.menuStrip2.TabIndex = 1;
-            this.menuStrip2.Text = "menuStrip2";
+            this.l_punkty.AutoSize = true;
+            this.l_punkty.Location = new System.Drawing.Point(64, 48);
+            this.l_punkty.Name = "l_punkty";
+            this.l_punkty.Size = new System.Drawing.Size(0, 13);
+            this.l_punkty.TabIndex = 3;
+            // 
+            // L_punkty_title
+            // 
+            this.L_punkty_title.AutoSize = true;
+            this.L_punkty_title.Location = new System.Drawing.Point(12, 48);
+            this.L_punkty_title.Name = "L_punkty_title";
+            this.L_punkty_title.Size = new System.Drawing.Size(46, 13);
+            this.L_punkty_title.TabIndex = 4;
+            this.L_punkty_title.Text = "Punkty: ";
+            this.L_punkty_title.Click += new System.EventHandler(this.label2_Click);
             // 
             // graToolStripMenuItem
             // 
@@ -69,17 +78,16 @@
             this.graToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.graToolStripMenuItem.Text = "Gra";
             // 
-            // oAutorzeToolStripMenuItem
-            // 
-            this.oAutorzeToolStripMenuItem.Name = "oAutorzeToolStripMenuItem";
-            this.oAutorzeToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.oAutorzeToolStripMenuItem.Text = "O Autorze";
-            // 
             // nowaGraToolStripMenuItem
             // 
             this.nowaGraToolStripMenuItem.Name = "nowaGraToolStripMenuItem";
             this.nowaGraToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.nowaGraToolStripMenuItem.Text = "Nowa gra";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
             // 
             // najlepszeWynikiToolStripMenuItem
             // 
@@ -87,49 +95,55 @@
             this.najlepszeWynikiToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.najlepszeWynikiToolStripMenuItem.Text = "Najlepsze wyniki";
             // 
-            // toolStripSeparator1
+            // oAutorzeToolStripMenuItem
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            this.oAutorzeToolStripMenuItem.Name = "oAutorzeToolStripMenuItem";
+            this.oAutorzeToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.oAutorzeToolStripMenuItem.Text = "O Autorze";
+            this.oAutorzeToolStripMenuItem.Click += new System.EventHandler(this.oAutorzeToolStripMenuItem_Click);
             // 
-            // pictureBox1
+            // menuStrip2
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(491, 515);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.graToolStripMenuItem,
+            this.oAutorzeToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(274, 24);
+            this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Text = "menuStrip2";
+            this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 578);
+            this.ClientSize = new System.Drawing.Size(274, 576);
+            this.Controls.Add(this.L_punkty_title);
+            this.Controls.Add(this.l_punkty);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label l_punkty;
+        private System.Windows.Forms.Label L_punkty_title;
         private System.Windows.Forms.ToolStripMenuItem graToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nowaGraToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem najlepszeWynikiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAutorzeToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
     }
 }
 
