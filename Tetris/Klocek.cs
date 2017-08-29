@@ -3,36 +3,76 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Tetris
 {
     class Klocek
     {
-        int[][] KlocekMiejsce { get; set; }
-        private byte ksztalt { get; set; }
-        private byte pozycja { get; set; }
+        public int[][] KlocekMiejsce;
+        public int Ksztalt { get; set; }
+        public int Pozycja { get; set; }
+        public Point CurrPoint;
+
+        public Klocek()
+        {
+            this.CurrPoint.X = 3;
+            this.CurrPoint.Y = 0;
+            Ksztalt = (new Random(Seed: 3636).Next() % 7) + 1;
+            Pozycja = (new Random(Seed: 568).Next() % 4) + 1;
+
+            switch (Ksztalt)
+            {
+                case 1:
+                    L_N(Pozycja);
+                    break;
+                case 2:
+                    L2_N(Pozycja);
+                    break;
+                case 3:
+                    T_N(Pozycja);
+                    break;
+                case 4:
+                    I_N(Pozycja);
+                    break;
+                case 5:
+                    S_N(Pozycja);
+                    break;
+                case 6:
+                    S2_N(Pozycja);
+                    break;
+                case 7:
+                    K_4();
+                    break;
+
+
+            }
+
+        }
 
         public static void Obrot_L(byte ksztalt, byte pozycja)
         {
-            switch (ksztalt)
+            if (pozycja >= 3)
             {
-                case 1: // L 
-                    break;
-                case 2: // odwrócone L
-                    break;
-                case 3: // T
-                    break;
-                case 4: // ----
-                    break;
-                case 5: // S
-                    break;
-                case 6: // odwrócone S
-                    break;
-                case 7: // KWADRAT
-                    break;
-
+                pozycja = 0;
             }
-            ;
+                else
+            {
+                pozycja++;
+            }
+            
+        }
+
+        public static void Obrot_P(byte ksztalt, byte pozycja)
+        {
+            if (pozycja <= 0)
+            {
+                pozycja = 3;
+            }
+            else
+            {
+                pozycja--;
+            }
         }
 
         void zeruj()
@@ -47,28 +87,29 @@ namespace Tetris
             
         }
 
-        public static void Obrot_P(byte ksztalt, byte pozycja)
+        // L
+        void L_N(int N)
         {
-            switch (ksztalt)
+            switch (N)
             {
-                case 1: // L 
+                case 0:
+                    L_1();
                     break;
-                case 2: // odwrócone L
+                case 1:
+                    L_2();
                     break;
-                case 3: // T
+                case 2:
+                    L_3();
                     break;
-                case 4: // ----
+                case 3:
+                    L_4();
                     break;
-                case 5: // S
-                    break;
-                case 6: // odwrócone S
+                default:
+                    L_1();
                     break;
 
             }
         }
-
-        // L
-
         //[ ][ ][x][ ]          [ ][ ][ ][ ]          [ ][ ][ ][ ]          [ ][ ][ ][ ]
         //[ ][ ][x][ ]          [ ][ ][ ][ ]          [ ][x][x][ ]          [ ][x][ ][ ]
         //[ ][x][x][ ]          [x][x][x][ ]          [ ][x][ ][ ]          [ ][x][x][x]
@@ -76,7 +117,7 @@ namespace Tetris
 
         void L_1()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[0][0] = 1;
             this.KlocekMiejsce[0][0] = 1;
@@ -86,7 +127,7 @@ namespace Tetris
 
         void L_2()
         {
-            this.pozycja = 2;
+            this.Pozycja = 2;
             this.zeruj();
             this.KlocekMiejsce[0][0] = 1;
             this.KlocekMiejsce[0][0] = 1;
@@ -96,7 +137,7 @@ namespace Tetris
 
         void L_3()
         {
-            this.pozycja = 3;
+            this.Pozycja = 3;
             this.zeruj();
             this.KlocekMiejsce[0][0] = 1;
             this.KlocekMiejsce[0][0] = 1;
@@ -106,7 +147,7 @@ namespace Tetris
 
         void L_4()
         {
-            this.pozycja = 4;
+            this.Pozycja = 4;
             this.zeruj();
             this.KlocekMiejsce[0][0] = 1;
             this.KlocekMiejsce[0][0] = 1;
@@ -118,6 +159,29 @@ namespace Tetris
 
         //odwrócone L
 
+        void L2_N(int N)
+        {
+            switch (N)
+            {
+                case 0:
+                    L2_1();
+                    break;
+                case 1:
+                    L2_2();
+                    break;
+                case 2:
+                    L2_3();
+                    break;
+                case 3:
+                    L2_4();
+                    break;
+                default:
+                    L2_1();
+                    break;
+
+            }
+        }
+
         //[ ][x][ ][ ]          [ ][ ][ ][ ]          [ ][ ][ ][ ]          [ ][ ][ ][ ]
         //[ ][x][ ][ ]          [ ][ ][ ][x]          [ ][x][x][ ]          [ ][x][x][x]
         //[ ][x][x][ ]          [ ][x][x][x]          [ ][ ][x][ ]          [ ][x][ ][ ]
@@ -125,7 +189,7 @@ namespace Tetris
 
         void L2_1()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[0][1] = 2;
             this.KlocekMiejsce[1][1] = 2;
@@ -135,7 +199,7 @@ namespace Tetris
 
         void L2_2()
         {
-            this.pozycja = 2;
+            this.Pozycja = 2;
             this.zeruj();
             this.KlocekMiejsce[1][3] = 2;
             this.KlocekMiejsce[2][1] = 2;
@@ -145,7 +209,7 @@ namespace Tetris
 
         void L2_3()
         {
-            this.pozycja = 3;
+            this.Pozycja = 3;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 2;
             this.KlocekMiejsce[1][2] = 2;
@@ -155,7 +219,7 @@ namespace Tetris
 
         void L2_4()
         {
-            this.pozycja = 4;
+            this.Pozycja = 4;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 2;
             this.KlocekMiejsce[1][2] = 2;
@@ -165,6 +229,29 @@ namespace Tetris
 
         // T
 
+        void T_N(int N)
+        {
+            switch (N)
+            {
+                case 0:
+                    T_1();
+                    break;
+                case 1:
+                    T_2();
+                    break;
+                case 2:
+                    T_3();
+                    break;
+                case 3:
+                    T_4();
+                    break;
+                default:
+                    T_1();
+                    break;
+
+            }
+        }
+
         //[ ][ ][ ][ ]          [ ][ ][ ][ ]          [ ][ ][ ][ ]          [ ][ ][ ][ ]
         //[ ][x][x][x]          [ ][x][ ][ ]          [ ][ ][x][ ]          [ ][ ][x][ ]
         //[ ][ ][x][ ]          [ ][x][x][ ]          [ ][x][x][x]          [ ][x][x][ ]
@@ -172,7 +259,7 @@ namespace Tetris
 
         void T_1()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 3;
             this.KlocekMiejsce[1][2] = 3;
@@ -182,7 +269,7 @@ namespace Tetris
 
         void T_2()
         {
-            this.pozycja = 2;
+            this.Pozycja = 2;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 3;
             this.KlocekMiejsce[1][2] = 3;
@@ -192,7 +279,7 @@ namespace Tetris
 
         void T_3()
         {
-            this.pozycja = 3;
+            this.Pozycja = 3;
             this.zeruj();
             this.KlocekMiejsce[1][2] = 3;
             this.KlocekMiejsce[2][1] = 3;
@@ -202,7 +289,7 @@ namespace Tetris
 
         void T_4()
         {
-            this.pozycja = 4;
+            this.Pozycja = 4;
             this.zeruj();
             this.KlocekMiejsce[1][2] = 3;
             this.KlocekMiejsce[2][1] = 3;
@@ -212,6 +299,29 @@ namespace Tetris
 
         // ----
 
+        void I_N(int N)
+        {
+            switch (N)
+            {
+                case 0:
+                    I_1();
+                    break;
+                case 1:
+                    I_2();
+                    break;
+                case 2:
+                    I_1();
+                    break;
+                case 3:
+                    I_2();
+                    break;
+                default:
+                    I_1();
+                    break;
+
+            }
+        }
+
         //[ ][x][ ][ ]          [ ][ ][ ][ ]
         //[ ][x][ ][ ]          [ ][ ][ ][ ]
         //[ ][x][ ][ ]          [x][x][x][x]
@@ -219,7 +329,7 @@ namespace Tetris
 
         void I_1()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[1][0] = 4;
             this.KlocekMiejsce[1][1] = 4;
@@ -229,7 +339,7 @@ namespace Tetris
 
         void I_2()
         {
-            this.pozycja = 2;
+            this.Pozycja = 2;
             this.zeruj();
             this.KlocekMiejsce[3][0] = 4;
             this.KlocekMiejsce[3][1] = 4;
@@ -240,6 +350,29 @@ namespace Tetris
 
         // S
 
+        void S_N(int N)
+        {
+            switch (N)
+            {
+                case 0:
+                    S_1();
+                    break;
+                case 1:
+                    S_2();
+                    break;
+                case 2:
+                    S_1();
+                    break;
+                case 3:
+                    S_1();
+                    break;
+                default:
+                    S_1();
+                    break;
+
+            }
+        }
+
         //[ ][ ][ ][ ]          [ ][ ][ ][ ]
         //[ ][ ][x][x]          [ ][x][ ][ ]
         //[ ][x][x][ ]          [ ][x][x][ ]
@@ -247,7 +380,7 @@ namespace Tetris
 
         void S_1()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[1][2] = 5;
             this.KlocekMiejsce[1][3] = 5;
@@ -257,7 +390,7 @@ namespace Tetris
 
         void S_2()
         {
-            this.pozycja = 2;
+            this.Pozycja = 2;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 5;
             this.KlocekMiejsce[2][1] = 5;
@@ -267,6 +400,29 @@ namespace Tetris
 
         // odwrócone S
 
+        void S2_N(int N)
+        {
+            switch (N)
+            {
+                case 0:
+                    S2_1();
+                    break;
+                case 1:
+                    S2_2();
+                    break;
+                case 2:
+                    S2_1();
+                    break;
+                case 3:
+                    S2_1();
+                    break;
+                default:
+                    S2_1();
+                    break;
+
+            }
+        }
+
         //[ ][ ][ ][ ]          [ ][ ][ ][ ]
         //[ ][x][x][ ]          [ ][ ][x][ ]
         //[ ][ ][x][x]          [ ][x][x][ ]
@@ -274,7 +430,7 @@ namespace Tetris
 
         void S2_1()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 6;
             this.KlocekMiejsce[1][2] = 6;
@@ -284,7 +440,7 @@ namespace Tetris
 
         void S2_2()
         {
-            this.pozycja = 2;
+            this.Pozycja = 2;
             this.zeruj();
             this.KlocekMiejsce[1][2] = 6;
             this.KlocekMiejsce[2][1] = 6;
@@ -301,14 +457,13 @@ namespace Tetris
 
         void K_4()
         {
-            this.pozycja = 1;
+            this.Pozycja = 1;
             this.zeruj();
             this.KlocekMiejsce[1][1] = 7;
             this.KlocekMiejsce[1][2] = 7;
             this.KlocekMiejsce[2][1] = 7;
             this.KlocekMiejsce[2][2] = 7;
         }
-
 
     }
 }

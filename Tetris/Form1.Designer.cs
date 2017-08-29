@@ -37,12 +37,15 @@
             this.najlepszeWynikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAutorzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.n_poziom = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(12, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 500);
@@ -83,6 +86,7 @@
             this.nowaGraToolStripMenuItem.Name = "nowaGraToolStripMenuItem";
             this.nowaGraToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.nowaGraToolStripMenuItem.Text = "Nowa gra";
+            this.nowaGraToolStripMenuItem.Click += new System.EventHandler(this.nowaGraToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -104,28 +108,55 @@
             // 
             // menuStrip2
             // 
+            this.menuStrip2.AutoSize = false;
+            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.graToolStripMenuItem,
             this.oAutorzeToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip2.Size = new System.Drawing.Size(274, 24);
             this.menuStrip2.TabIndex = 1;
+            this.menuStrip2.Tag = "Menu";
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
+            // 
+            // n_poziom
+            // 
+            this.n_poziom.AutoSize = true;
+            this.n_poziom.Location = new System.Drawing.Point(239, 48);
+            this.n_poziom.Name = "n_poziom";
+            this.n_poziom.Size = new System.Drawing.Size(0, 13);
+            this.n_poziom.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(186, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Poziom: ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(274, 576);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.n_poziom);
             this.Controls.Add(this.L_punkty_title);
             this.Controls.Add(this.l_punkty);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip2);
+            this.KeyPreview = true;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
@@ -144,6 +175,8 @@
         private System.Windows.Forms.ToolStripMenuItem najlepszeWynikiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAutorzeToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.Label n_poziom;
+        private System.Windows.Forms.Label label2;
     }
 }
 
